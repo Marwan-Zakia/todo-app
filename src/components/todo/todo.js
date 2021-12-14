@@ -4,11 +4,10 @@ import Header from "../header.jsx";
 import Form from "../Form.jsx";
 import { v4 as uuid } from "uuid";
 import List from "../list.jsx";
-import { SettingContext } from "../context/Settings";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-
+import Auth from '..//auth/auth';
 const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
@@ -47,15 +46,21 @@ const ToDo = () => {
       <Container fluid={"md"}>
         <Row>
           <Col xs={4} xs={{ order: "first" }}>
+          <Auth     >
             <Form handleSubmit={handleSubmit} handleChange={handleChange} />
+          </Auth>
           </Col>
 
           <Col xs={4} xs={{ order: "last" }}>
+          <Auth>
+
             <List
               incomplete={incomplete}
               toggleComplete={toggleComplete}
               list={list}
+              deleteItem={deleteItem}
             />
+            </Auth>
           </Col>
         </Row>
       </Container>

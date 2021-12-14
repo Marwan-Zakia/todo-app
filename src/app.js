@@ -9,29 +9,38 @@ import Settings from "./components/context/Settings";
 import SetForm from "./components/setForm";
 import ToDo from "./components/todo/todo.js";
 import Header from "./components/header";
+
+import LoginContext from "./components/auth/context";
+import Auth from "./components/auth/auth";
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route
-          path="/setting"
-          element={
-            <Settings>
-              <SetForm />
-            </Settings>
-          }
-        />
+      <LoginContext>
+        <Header />
+        <Routes>
+          <Route
+            path="/setting"
+            element={
+              <Auth capability={'create','read','update','delete'}>
+                <Settings>
+                  <SetForm />
+                </Settings>
+              </Auth>
+            }
+          />
 
-        <Route
-          path="/"
-          element={
-            <Settings>
-              <ToDo />
-            </Settings>
-          }
-        />
-      </Routes>
+          <Route
+            path="/"
+            element={
+              <Auth>
+                <Settings>
+                  <ToDo  />
+                </Settings>
+              </Auth>
+            }
+          />
+        </Routes>
+      </LoginContext>
     </BrowserRouter>
   );
 }
