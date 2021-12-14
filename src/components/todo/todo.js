@@ -5,13 +5,16 @@ import Form from "../Form.jsx";
 import { v4 as uuid } from "uuid";
 import List from "../list.jsx";
 import { SettingContext } from "../context/Settings";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+
 const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
-    console.log(item);
     item.id = uuid();
     item.complete = false;
     setList([...list, item]);
@@ -38,20 +41,24 @@ const ToDo = () => {
     setIncomplete(incompleteCount);
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
-  const Setting = useContext(SettingContext);
   return (
     <>
-      <Header incomplete={incomplete} />
-      <Form handleSubmit={handleSubmit} handleChange={handleChange} />
-      {list.map((item) => (
-        <List
-        incomplete={incomplete} 
-          item={item}
-          toggleComplete={toggleComplete}
-          showen={Setting.shown}
-          number={Setting.number}
-        />
-      ))}
+      <h1> To Do List: {incomplete} items pending</h1>
+      <Container fluid={"md"}>
+        <Row>
+          <Col xs={4} xs={{ order: "first" }}>
+            <Form handleSubmit={handleSubmit} handleChange={handleChange} />
+          </Col>
+
+          <Col xs={4} xs={{ order: "last" }}>
+            <List
+              incomplete={incomplete}
+              toggleComplete={toggleComplete}
+              list={list}
+            />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
