@@ -1,13 +1,8 @@
 import React from 'react';
 import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken';
+import axios from "axios";
 
-const testUsers = {
-  admin: {password:'password', name:'Administrator', role:'admin', capabilities:['create','read','update','delete']},
-  editor: { password: 'password', name: 'Editor', role: 'editor', capabilities: ['read', 'update']},
-  writer: { password: 'password', name: 'Writer', role: 'writer', capabilities: ['create']},
-
-};
 
 export const LoginContext = React.createContext();
 
@@ -25,16 +20,41 @@ class LoginProvider extends React.Component {
   }
 
   can = (capability) => {
-    return this?.state?.user?.capabilities?.includes(capability);
+    return this.state.user?.capabilities?.includes(capability);
   }
 
-  login = (username, password) => {
-    if (testUsers[username]) {
-      // Create a "good" token, like you'd get from a server
-      const token = jwt.sign(testUsers[username], process.env.REACT_APP_SECRET);
-      this.validateToken(token);
+  login = async (username, password) => {
+    try {
+      const encodedBase64Token = Buffer.from(`${username}:${password}`).toString('base64');
+      const authorization = `Basic ${encodedBase64Token}`;
+      let data = '';
+      let config = {
+        method: 'post',
+        url: 'https://todo-401-401.herokuapp.com/sign-in',
+        headers: {
+          'Authorization': authorization
+        },
+        data: data
+      };
+
+      const response = await axios (config)
+      
+      this.setState({
+        token : response.data.token,
+        loggedIn : true,
+        user : response.data.username,
+        capabilities : response.data.capabilities
+      });
+     
+      
+
+    } catch (error) {
+      console.log(error.message);
     }
+
   }
+
+
 
   logout = () => {
     this.setLoginState(false, null, {});

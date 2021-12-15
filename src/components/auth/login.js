@@ -1,7 +1,8 @@
 import React from "react";
 import { When } from "react-if";
-
+import superagent  from "superagent";
 import { LoginContext } from "./context.js";
+import base64 from "base-64";
 
 class Login extends React.Component {
   static contextType = LoginContext;
@@ -13,11 +14,19 @@ class Login extends React.Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    this.context.login(this.state.username, this.state.password);
-  };
+    let API = "https://todo-401-401.herokuapp.com";
+    console.log(this.state.password);
+    const response = await superagent 
+    .post(`${API}/sign-in`)
+    .set('authorization', `Basic ${base64.encode(`${this.state.username}:${this.state.password}`)}`);
+      if (response.status === 200) {
+        this.context.login(this.state.username, this.state.password);
+        console.log(response.body,'response');
+
+      }
+   };
 
   render() {
     return (

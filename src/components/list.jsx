@@ -5,6 +5,7 @@ import ReactPaginate from "react-paginate";
 import { SettingContext } from "./context/Settings";
 import "./list.css";
 import Auth from "./auth/auth";
+import Pagination from "./pagination";
 export default function List({ toggleComplete, list, deleteItem }) {
   const settings = useContext(SettingContext);
   const [numberOfPages, setnumberOfPages] = useState(0);
@@ -56,6 +57,15 @@ export default function List({ toggleComplete, list, deleteItem }) {
     <>
       {displayUsers}
       <Auth capability={"read"}>
+      {/* <Pagination           
+      pageCount={pageCount}
+      changePage={changePage}
+      usersPage={usersPage}
+      list={list}
+      
+      //   "homepage" :"http://https://marwan-zakia.github.io/todo-app/",
+      
+      /> */}
         <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}

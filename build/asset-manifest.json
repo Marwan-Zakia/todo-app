@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "//marwan-zakia.github.io/todo-app/static/css/main.b748ed13.chunk.css",
-    "main.js": "//marwan-zakia.github.io/todo-app/static/js/main.e2208a16.chunk.js",
-    "main.js.map": "//marwan-zakia.github.io/todo-app/static/js/main.e2208a16.chunk.js.map",
+    "main.js": "//marwan-zakia.github.io/todo-app/static/js/main.01f3c817.chunk.js",
+    "main.js.map": "//marwan-zakia.github.io/todo-app/static/js/main.01f3c817.chunk.js.map",
     "runtime-main.js": "//marwan-zakia.github.io/todo-app/static/js/runtime-main.5851a156.js",
     "runtime-main.js.map": "//marwan-zakia.github.io/todo-app/static/js/runtime-main.5851a156.js.map",
     "static/css/2.84344eed.chunk.css": "//marwan-zakia.github.io/todo-app/static/css/2.84344eed.chunk.css",
-    "static/js/2.6741c06b.chunk.js": "//marwan-zakia.github.io/todo-app/static/js/2.6741c06b.chunk.js",
-    "static/js/2.6741c06b.chunk.js.map": "//marwan-zakia.github.io/todo-app/static/js/2.6741c06b.chunk.js.map",
+    "static/js/2.37c142ea.chunk.js": "//marwan-zakia.github.io/todo-app/static/js/2.37c142ea.chunk.js",
+    "static/js/2.37c142ea.chunk.js.map": "//marwan-zakia.github.io/todo-app/static/js/2.37c142ea.chunk.js.map",
     "index.html": "//marwan-zakia.github.io/todo-app/index.html",
     "static/css/2.84344eed.chunk.css.map": "//marwan-zakia.github.io/todo-app/static/css/2.84344eed.chunk.css.map",
     "static/css/main.b748ed13.chunk.css.map": "//marwan-zakia.github.io/todo-app/static/css/main.b748ed13.chunk.css.map",
-    "static/js/2.6741c06b.chunk.js.LICENSE.txt": "//marwan-zakia.github.io/todo-app/static/js/2.6741c06b.chunk.js.LICENSE.txt",
+    "static/js/2.37c142ea.chunk.js.LICENSE.txt": "//marwan-zakia.github.io/todo-app/static/js/2.37c142ea.chunk.js.LICENSE.txt",
     "static/media/blueprint-icons.css": "//marwan-zakia.github.io/todo-app/static/media/icons-20.cde033c5.eot",
     "static/media/index.less": "//marwan-zakia.github.io/todo-app/static/media/index.fa8e7f60.less"
   },
   "entrypoints": [
     "static/js/runtime-main.5851a156.js",
     "static/css/2.84344eed.chunk.css",
-    "static/js/2.6741c06b.chunk.js",
+    "static/js/2.37c142ea.chunk.js",
     "static/css/main.b748ed13.chunk.css",
-    "static/js/main.e2208a16.chunk.js"
+    "static/js/main.01f3c817.chunk.js"
   ]
 }
