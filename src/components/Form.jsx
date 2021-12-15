@@ -1,5 +1,4 @@
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core";
-import Container from "react-bootstrap/Container";
 import Auth from './auth/auth'
 import Card from "react-bootstrap/Card";
 export default function Form({ handleSubmit, handleChange }) {

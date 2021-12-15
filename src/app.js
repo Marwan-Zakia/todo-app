@@ -21,7 +21,7 @@ export default function App() {
           <Route
             path="/setting"
             element={
-              <Auth capability={'create','read','update','delete'}>
+              <Auth >
                 <Settings>
                   <SetForm />
                 </Settings>
