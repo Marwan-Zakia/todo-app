@@ -11,7 +11,7 @@ export default function Form({ handleSubmit, handleChange }) {
             <InputGroup
               className={"bp3-intent-primary"}
               onChange={handleChange}
-              name="text"
+              name="description"
               type="text"
               placeholder="Item Details"
             />

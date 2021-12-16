@@ -2,9 +2,9 @@ import React from "react";
 import { Navbar, Alignment } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import Login from "../components//auth/login";
-import Modal from 'react-bootstrap/Modal'
+import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
-import Button from 'react-bootstrap/Button'
+import Button from "react-bootstrap/Button";
 import Signup from "../components/auth/logup";
 function Example() {
   const [show, setlog] = useState(false);
@@ -46,7 +46,7 @@ function Example2() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-      sign up
+        sign up
       </Button>
 
       <Modal show={show2} onHide={handleClose}>
@@ -80,7 +80,7 @@ export default function Header() {
                 className="bp3-navbar-group bp3-align-left"
                 style={{ fontSize: "1.5rem" }}
               >
-                <Link style={{ color: "blue" }} to="/">
+                <Link style={{ color: "blue", textDecoration:'none' }} to="/">
                   home
                 </Link>
               </Navbar.Heading>
@@ -88,18 +88,16 @@ export default function Header() {
                 className="bp3-navbar-group bp3-align-left"
                 style={{ fontSize: "1.5rem" }}
               >
-                <Link style={{ color: "blue" }} to="/setting">
+                <Link style={{ color: "blue", textDecoration:'none'  }} to="/setting">
                   settings
                 </Link>
-                <div className="col" xs={6} xs={{ order: "last" }}>
-             
-                <Example/>
-                <   Example2/>
+                <div className="col"   style={{ marginLeft: '798px '}}>
+                  <Example />
+                  <Example2 />
                 </div>
               </Navbar.Heading>
             </div>
-            </div>
-         
+          </div>
         </div>
       </Navbar>
     </>
