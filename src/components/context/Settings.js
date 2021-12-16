@@ -13,15 +13,15 @@ export default function Settings(props) {
 
   };
 
-  useEffect(() => {
-    let str = localStorage.getItem("settings");
-    let obj = JSON.parse(str);
-    if (obj) {
-      settoggeleComplte(obj.numberOfshow);
-      setnumberOfshow(Number(obj.numberOfItem));
-    }
-    // localStorage.clear();
-  }, []);
+  // useEffect(() => {
+  //   let str = localStorage.getItem("settings");
+  //   let obj = JSON.parse(str);
+  //   if (obj) {
+  //     settoggeleComplte(obj.numberOfshow);
+  //     setnumberOfshow(Number(obj.numberOfItem));
+  //   }
+  //   // localStorage.clear();
+  // }, []);
 
   return (
     <SettingContext.Provider value={state}>

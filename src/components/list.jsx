@@ -6,6 +6,7 @@ import { SettingContext } from "./context/Settings";
 import "./list.css";
 import Auth from "./auth/auth";
 import Pagination from "./pagination";
+import api from "./todo/api";
 export default function List({ toggleComplete, list, deleteItem }) {
   const settings = useContext(SettingContext);
   const [numberOfPages, setnumberOfPages] = useState(0);
@@ -19,7 +20,7 @@ export default function List({ toggleComplete, list, deleteItem }) {
         <Auth capability={"read"}>
           <div key={item.id} style={{ width: "650px", margin: "15px" }}>
             <Card interactive={true} elevation={Elevation.TWO}>
-              <p>{item.text}</p>
+              <p>{item.description}</p>
               <p>
                 <small>Assigned to: {item.assignee}</small>
               </p>
@@ -30,9 +31,16 @@ export default function List({ toggleComplete, list, deleteItem }) {
               <Auth capability={"update"}>
                 <Button
                   className="bp3-intent-success"
-                  onClick={() => toggleComplete(item.id)}
+                  onClick={() => {
+                    api
+                      .put(`/${item.id}`, { completed: !item.completed })
+                      .then((res) => {
+                        console.log(res.data);
+                      });
+                    toggleComplete(item.id);
+                  }}
                 >
-                  Complete: {item.complete.toString()}
+                  Complete: {item.completed  ? "Yes" : "No"}
                 </Button>
               </Auth>
               <Auth capability={"delete"}>
@@ -40,7 +48,7 @@ export default function List({ toggleComplete, list, deleteItem }) {
                   className="bp3-intent-danger"
                   onClick={() => deleteItem(item.id)}
                 >
-                  Delete: {item.complete.toString()}
+                  Delete {item?.complete}
                 </Button>
               </Auth>
             </Card>
@@ -57,7 +65,7 @@ export default function List({ toggleComplete, list, deleteItem }) {
     <>
       {displayUsers}
       <Auth capability={"read"}>
-      {/* <Pagination           
+        {/* <Pagination           
       pageCount={pageCount}
       changePage={changePage}
       usersPage={usersPage}
